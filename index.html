@@ -585,18 +585,19 @@
             <h2 class="text-center mb-5">联系我们</h2>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <form id="contactForm">
+                    <!-- ✅ 已修好：方案二 mailto 表单 -->
+                    <form action="mailto:3275511272@qq.com?subject=官网阀门需求咨询" method="GET" enctype="text/plain">
                         <div class="mb-3">
                             <label class="form-label">姓名</label>
-                            <input type="text" class="form-control" id="name" placeholder="请输入您的姓名" required>
+                            <input type="text" class="form-control" name="姓名" placeholder="请输入您的姓名" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">联系电话</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="请输入您的联系电话" required>
+                            <input type="tel" class="form-control" name="电话" placeholder="请输入您的联系电话" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">需求描述</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="请描述您的阀门需求（如：气动球阀DN50，耐高温200℃）" required></textarea>
+                            <textarea class="form-control" name="需求描述" rows="4" placeholder="请描述您的阀门需求（如：气动球阀DN50，耐高温200℃）" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">提交需求</button>
                     </form>
@@ -621,9 +622,9 @@
     <!-- 9. 页脚 -->
     <footer class="bg-black text-white py-4">
         <div class="container text-center">
-            <p class="mb-1"> 2025 上海金钢自控阀门有限公司 版权所有 沪ICP备12046412号 | 网站地图</p>
-            <p class="mb-1"> 工厂地址：上海市嘉定区园区路268号 电话：4000-888-218 传真：021-65901444</p>
-            <p class="mb-1"> 上海金钢自控阀门有限公司是一家阀门厂家，核心产品有：高温球阀、气动球阀、不锈钢球阀、高温蝶阀等等，更多产品欢迎咨询</p>
+            <p class="mb-1">© 2025 上海金钢自控阀门有限公司 版权所有 沪ICP备12046412号 | 网站地图</p>
+            <p class="mb-1">工厂地址：上海市嘉定区园区路268号 电话：4000-888-218 传真：021-65901444</p>
+            <p class="mb-1">上海金钢自控阀门有限公司是一家阀门厂家，核心产品有：高温球阀、气动球阀、不锈钢球阀、高温蝶阀等等，更多产品欢迎咨询</p>
         </div>
     </footer>
 

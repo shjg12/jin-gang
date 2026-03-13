@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 上海金钢自控阀门有限公司</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- 自定义样式 -->
+    <style>
+        /* ========== 全局继承样式 ========== */
+        body {
+            background-color: #f5f5f5;
+            font-family: "Microsoft Yahei", sans-serif;
+            color: #333;
+        }
+        /* 导航栏悬浮效果 */
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 0px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-brand img {
+            height: 80px !important;
+            width: auto !important;
+            object-fit: contain;
+        }
+        .navbar-nav {
+            align-items: center;
+        }
+        .navbar-nav .nav-item {
+            margin: 0;
+        }
+        .navbar-nav .nav-link {
+            color: #333333 !important;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 25px 18px !important;
+            margin: 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .navbar-nav .nav-link.active {
+            color: #c8102e !important;
+            border-bottom: 3px solid #c8102e;
+            background-color: transparent !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #c8102e !important;
+            border-bottom: 3px solid #c8102e;
+            background-color: transparent !important;
+        }
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* 顶部信息栏 */
+        .top-bar {
+            background-color: #000 !important;
+            color: #fff !important;
+            padding: 5px 0 !important;
+        }
+        .top-bar .welcome {
+            font-size: 14px;
+        }
+        .top-bar .tel {
+            font-size: 14px;
+        }
+        .top-bar .qr-box .qr-content {
+            display: none;
+        }
+        .top-bar .qr-box:hover .qr-content {
+            display: block;
+        }
+
+        /* 下拉菜单样式 */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 0;
+            padding: 0;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            min-width: 120px;
+            width: 120px;
+            text-align: center;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-item {
+            padding: 10px 0;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            text-align: center;
+            width: 100%;
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #c8102e;
+        }
+
+        /* 响应式适配：移动端 */
+        @media (max-width: 992px) {
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: none;
+            }
+            .navbar-nav .nav-link {
+                padding: 12px 15px !important;
+                border-bottom: none !important;
+            }
+        }
+
+        /* ========== 面包屑样式 ========== */
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-item a {
+            color: #666;
+            text-decoration: none;
+        }
+        .breadcrumb-item a:hover {
+            color: #1677ff;
+        }
+        .breadcrumb {
+            background-color: transparent;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: #c8102e;
+            text-decoration: underline;
+        }
+        .breadcrumb-item.active {
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* ========== 联系我们页面样式 ========== */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+        
+        /* 页面标题 */
+        .contact-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* 联系信息卡片 */
+        .contact-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+        }
+        
+        .contact-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #c8102e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        /* 联系方式列表 */
+        .contact-info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .contact-info-list li i {
+            font-size: 18px;
+            color: #c8102e;
+            margin-right: 15px;
+            margin-top: 2px;
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .contact-info-list li .info-label {
+            color: #666;
+            min-width: 80px;
+            display: inline-block;
+        }
+        
+        .contact-info-list li .info-value {
+            color: #333;
+            flex: 1;
+        }
+        
+        .contact-info-list li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info-list li a:hover {
+            color: #c8102e;
+            text-decoration: underline;
+        }
+        
+        /* 地图容器 */
+        .map-container {
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 0;
+            height: 400px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #999;
+        }
+        
+        .map-placeholder i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        /* 表单样式 */
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            font-size: 14px;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: #c8102e;
+            box-shadow: none;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* 提交按钮 */
+        .submit-btn {
+            background-color: #c8102e;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 0;
+        }
+        
+        .submit-btn:hover {
+            background-color: #a80e26;
+        }
+        
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .contact-info-list li {
+                flex-direction: column;
+            }
+            
+            .contact-info-list li i {
+                margin-bottom: 5px;
+            }
+            
+            .contact-info-list li .info-label {
+                margin-bottom: 3px;
+            }
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        
+        .footer-content {
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .footer-content p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 顶部信息栏 -->
+    <div class="top-bar bg-dark text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="welcome">欢迎访问上海金钢自控阀门有限公司！</div>
+            <div class="top-info d-flex align-items-center gap-3">
+                <span class="tel"><i class="bi bi-telephone"></i> 4000-888-218</span>
+                <div class="qr-box position-relative">
+                    <button class="btn btn-sm btn-light" id="qrBtn">
+                        <i class="bi bi-qr-code"></i> 扫码关注
+                    </button>
+                    <div class="qr-content position-absolute right-0 top-100 bg-white p-2 shadow-lg rounded d-none z-3">
+                        <img src="../images/wechat_qr.jpg" alt="微信二维码" width="150" height="150" class="img-fluid">
+                        <p class="text-center text-muted small mt-1">微信公众号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2. 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm sticky-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/logo/company_logo.png" alt="金钢阀门" width="220" height="150" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">首页</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../pages/product.html" role="button">产品中心</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../pages/product.html#pneumatic">低温截止阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#electric">调节阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#solenoid">真空阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#regulating">无摩擦截止阀</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="../pages/about.html">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/case.html">客户案例</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/technologe.html">技术中心</a></li>
+                    <!-- 联系我们高亮 -->
+                    <li class="nav-item"><a class="nav-link active" href="./contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. 面包屑导航 -->
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" id="dynamicBreadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html"><i class="bi bi-house-door"></i> 首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">联系我们</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- 4. 联系我们主体内容 -->
+    <div class="contact-container">
+        <h2 class="contact-title">联系我们</h2>
+        
+        <div class="row">
+            <!-- 左侧联系信息 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="contact-card">
+                    <h3>联系方式</h3>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="bi bi-telephone-fill"></i>
+                            <div>
+                                <span class="info-label">联系电话：</span>
+                                <span class="info-value">4000-888-218</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-phone-fill"></i>
+                            <div>
+                                <span class="info-label">手机：</span>
+                                <span class="info-value">***********</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope-fill"></i>
+                            <div>
+                                <span class="info-label">邮箱：</span>
+                                <span class="info-value"><a href="********">********</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <span class="info-label">地址：</span>
+                                <span class="info-value">上海市嘉定区园区路268号</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock-fill"></i>
+                            <div>
+                                <span class="info-label">工作时间：</span>
+                                <span class="info-value">周一至周六 8:30-17:30</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-wechat"></i>
+                            <div>
+                                <span class="info-label">微信：</span>
+                                <span class="info-value">********</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>业务咨询</h3>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="bi bi-person-fill"></i>
+                            <div>
+                                <span class="info-label">销售：</span>
+                                <span class="info-value">*** ***********</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="bi bi-person-fill"></i>
+                            <div>
+                                <span class="info-label">销售经理：</span>
+                                <span class="info-value">*** ***********</span>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 右侧地图和表单 -->
+            <div class="col-lg-8 col-md-6">
+                <!-- 地图区域 -->
+                <div class="map-container">
+                    <!-- 地图占位符，实际使用时替换为真实地图代码 -->
+                    <div class="map-placeholder">
+                        <i class="bi bi-map"></i>
+                        <p>点击查看公司位置地图</p>
+                        <small>上海市嘉定区园区路268号</small>
+                    </div>
+                    <!-- 真实地图示例（百度/高德地图），替换上面的占位符即可 -->
+                    <!-- 
+                    <iframe 
+                        src="https://map.baidu.com/xxx" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        style="border:0" 
+                        allowfullscreen>
+                    </iframe>
+                    -->
+                </div>
+                
+                <!-- 留言表单 -->
+                <div class="contact-card">
+                    <h3>在线留言</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">姓名 *</label>
+                                    <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">电话 *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="请输入您的联系电话">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" placeholder="请输入您的邮箱地址">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">留言主题 *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">请选择留言主题</option>
+                                <option value="产品咨询">产品咨询</option>
+                                <option value="技术支持">技术支持</option>
+                                <option value="报价询价">报价询价</option>
+                                <option value="售后服务">售后服务</option>
+                                <option value="合作洽谈">合作洽谈</option>
+                                <option value="其他问题">其他问题</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">留言内容 *</label>
+                            <textarea id="message" name="message" required placeholder="请详细描述您的问题或需求..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">提交留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. 页脚 -->
+    <footer class="bg-black text-white py-4">
+        <div class="container text-center footer-content">
+            <p class="mb-1">© 2025 上海金钢自控阀门有限公司 版权所有 沪ICP备12046412号 | 网站地图</p>
+            <p class="mb-1">工厂地址：上海市嘉定区园区路268号 电话：4000-888-218 传真：021-65901444</p>
+            <p class="mb-1">上海金钢自控阀门有限公司是一家阀门厂家，核心产品有：高温球阀、气动球阀、不锈钢球阀、高温蝶阀等等，更多产品欢迎咨询</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 1. 二维码弹窗逻辑
+        document.getElementById('qrBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const qrContent = document.querySelector('.qr-content');
+            qrContent.classList.toggle('d-none');
+        });
+        document.addEventListener('click', function() {
+            document.querySelector('.qr-content').classList.add('d-none');
+        });
+
+        // 2. 产品中心下拉菜单显示逻辑 + 主链接可点击
+        const dropdownItem = document.querySelector('.nav-item.dropdown');
+        if (dropdownItem) {
+            dropdownItem.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-menu').style.display = 'block';
+            });
+            dropdownItem.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-menu').style.display = 'none';
+            });
+            const dropdownLink = dropdownItem.querySelector('.nav-link.dropdown-toggle');
+            dropdownLink.addEventListener('click', function(e) {
+                window.location.href = this.href;
+            });
+        }
+
+        // 3. 联系表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 简单验证
+            if (!formData.name || !formData.phone || !formData.subject || !formData.message) {
+                alert('请填写所有必填字段！');
+                return;
+            }
+            
+            // 模拟提交成功
+            alert('留言提交成功！我们会尽快与您联系。');
+            this.reset(); // 重置表单
+        });
+    </script>
+</body>
+</html>

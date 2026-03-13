@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电动法兰低温截止阀 - 上海金钢自控阀门有限公司</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        /* 产品详情页专属样式 */
+        .product-sidebar {
+            width: 260px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            position: sticky;
+            top: 80px;
+        }
+        .sidebar-header {
+            background: #c8102e;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .product-center-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product-content {
+            flex: 1;
+        }
+        .product-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            border-left: 4px solid #c8102e;
+            padding-left: 12px;
+        }
+        .product-img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            padding: 20px;
+            background: #fff;
+        }
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        .param-table th, .param-table td {
+            border: 1px solid #eee;
+            padding: 10px 15px;
+            text-align: center;
+        }
+        .param-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        /* 面包屑样式 */
+        .breadcrumb {
+            background-color: transparent;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: #c8102e;
+            text-decoration: underline;
+        }
+        .breadcrumb-item.active {
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* ========== 导航栏样式 ========== */
+        /* 顶部信息栏 */
+        .top-bar {
+            background-color: #000 !important;
+            color: #fff !important;
+            padding: 5px 0 !important;
+        }
+        .top-bar .welcome {
+            font-size: 14px;
+        }
+        .top-bar .tel {
+            font-size: 14px;
+        }
+        .top-bar .qr-box .qr-content {
+            display: none;
+        }
+        .top-bar .qr-box:hover .qr-content {
+            display: block;
+        }
+        /* 导航栏核心样式 */
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 0px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-brand img {
+            height: 80px !important;
+            width: auto !important;
+            object-fit: contain;
+        }
+        .navbar-nav {
+            align-items: center;
+        }
+        .navbar-nav .nav-item {
+            margin: 0;
+        }
+        .navbar-nav .nav-link {
+            color: #333333 !important;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 25px 18px !important;
+            margin: 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .navbar-nav .nav-link.active {
+            color: #c8102e !important;
+            border-bottom: 3px solid #c8102e;
+            background-color: transparent !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #c8102e !important;
+            border-bottom: 3px solid #c8102e;
+            background-color: transparent !important;
+        }
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        /* ========== 悬停显示下拉菜单样式 ========== */
+        /* 下拉菜单基础样式 - 调窄宽度+适配居中 */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 0;
+            padding: 0;
+            display: none; /* 默认隐藏 */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            min-width: 120px; /* 调窄下拉框宽度（原200px），可根据需求再调整 */
+            width: 120px; /* 固定宽度，确保不会自适应变宽 */
+            text-align: center; /* 菜单整体文字居中 */
+        }
+        /* 悬停时显示下拉菜单 */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        /* 下拉菜单项样式 - 文字居中+适配窄框 */
+        .dropdown-item {
+            padding: 10px 0; /* 去掉左右内边距，只保留上下，适配居中 */
+            color: #333;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            text-align: center; /* 单独给菜单项文字居中，双重保障 */
+            width: 100%; /* 菜单项宽度占满下拉框 */
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #c8102e;
+        }
+
+        /* 响应式适配：移动端仍使用点击触发 */
+        @media (max-width: 992px) {
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: none; /* 移动端关闭悬停显示 */
+            }
+            .navbar-nav .nav-link {
+                padding: 12px 15px !important;
+                border-bottom: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. 顶部信息栏（完全复刻首页） -->
+    <div class="top-bar bg-dark text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="welcome">欢迎访问上海金钢自控阀门有限公司！</div>
+            <div class="top-info d-flex align-items-center gap-3">
+                <span class="tel"><i class="bi bi-telephone"></i> 400-007-6568</span>
+                <!-- 二维码弹窗 -->
+                <div class="qr-box position-relative">
+                    <button class="btn btn-sm btn-light" id="qrBtn">
+                        <i class="bi bi-qr-code"></i> 扫码关注
+                    </button>
+                    <div class="qr-content position-absolute right-0 top-100 bg-white p-2 shadow-lg rounded d-none z-3">
+                        <img src="../images/wechat_qr.jpg" alt="微信二维码" width="150" height="150" class="img-fluid">
+                        <p class="text-center text-muted small mt-1">微信公众号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 导航栏（仅保留产品中心下拉，其余改为普通链接） -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm sticky-top" id="mainNav">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/logo/company_logo.png" alt="金钢阀门" width="220" height="150" class="img-fluid">
+            </a>
+            <!-- 手机端汉堡菜单 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- 导航菜单（仅产品中心保留下拉） -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">首页</a></li>
+                    <!-- 仅保留产品中心的下拉功能 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="../pages/product.html" role="button" data-bs-toggle="dropdown">产品中心</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../pages/product.html#pneumatic">低温截止阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#electric">调节阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#solenoid">真空阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#regulating">无摩擦截止阀</a></li>
+                        </ul>
+                    </li>
+                    <!-- 关于我们 -->
+                    <li class="nav-item"><a class="nav-link" href="../pages/about.html">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/case.html">客户案例</a></li>
+                    <!-- 技术中心 -->
+                    <li class="nav-item"><a class="nav-link" href="../pages/technologe.html">技术中心</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. 面包屑导航 -->
+    <div class="container py-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">首页</a></li>
+                <li class="breadcrumb-item"><a href="../pages/product.html">产品中心</a></li>
+                <li class="breadcrumb-item"><a href="../pages/product.html#pneumatic">低温截止阀</a></li>
+                <li class="breadcrumb-item active" aria-current="page">电动法兰低温截止阀</li>
+            </ol>
+        </nav>
+
+        <!-- 4. 产品详情内容 -->
+        <div class="product-center-container">
+            <!-- 左侧产品菜单 -->
+            <div class="product-sidebar">
+                <div class="sidebar-header">产品中心</div>
+                <ul class="list-unstyled m-0 p-0">
+                    <li style="border-bottom:1px solid #eee;">
+                        <a href="../pages/product.html#pneumatic" style="display:block;padding:12px 15px;color:#333;text-decoration:none;background:#1677ff;color:#fff;">低温截止阀</a>
+                    </li>
+                    <li style="border-bottom:1px solid #eee;">
+                        <a href="../pages/product.html#electric" style="display:block;padding:12px 15px;color:#333;text-decoration:none;">调节阀</a>
+                    </li>
+                    <li style="border-bottom:1px solid #eee;">
+                        <a href="../pages/product.html#solenoid" style="display:block;padding:12px 15px;color:#333;text-decoration:none;">真空阀</a>
+                    </li>
+                    <li style="border-bottom:1px solid #eee;">
+                        <a href="../pages/product.html#regulating" style="display:block;padding:12px 15px;color:#333;text-decoration:none;">无摩擦截止阀</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右侧产品详情 -->
+            <div class="product-content">
+                <h1 class="product-title">电动法兰低温截止阀</h1>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../images/product/diandongfalandiwenjiezhifa.jpg" class="product-img" alt="电动法兰低温截止阀">
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="section-title">产品信息</h5>
+                        
+                        <ul class="ps-3">
+                            <li>产品名称：电动法兰低温截止阀</li>
+                            <li>产品型号：</li>
+                            <li>产品口径：</li>
+                            <li>压力范围: </li>
+                            <li>产品材质：</li>
+                            <li>温度范围：</li>
+                            <li>公称压力：</li>
+                            <li>产品用途: </li>
+                            <li>连接方式：</li>
+                            <li>阀体材质：</li>
+                            <li>密封材质：</li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                
+
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. 页脚（完全复刻首页） -->
+    <footer class="bg-black text-white py-4">
+        <div class="container text-center">
+            <p class="mb-1"> 2025 上海金钢自控阀门有限公司 版权所有 沪ICP备12046412号 | 网站地图</p>
+            <p class="mb-1"> 工厂地址：上海市嘉定区园区路268号 电话：4000-888-218 传真：021-65901444</p>
+            <p class="mb-1"> 上海金钢自控阀门有限公司是一家阀门厂家，核心产品有：高温球阀、气动球阀、不锈钢球阀、高温蝶阀等等，更多产品欢迎咨询</p>
+        </div>
+    </footer>
+
+    <!-- 6. 回到顶部按钮（复刻首页） -->
+    <button id="backToTop" class="btn btn-primary rounded-circle shadow-lg" style="position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; display: none; justify-content: center; align-items: center; z-index: 999;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- 7. JS脚本（复刻首页核心交互） -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 1. 二维码弹窗显示/隐藏
+        document.getElementById('qrBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const qrContent = document.querySelector('.qr-content');
+            qrContent.classList.toggle('d-none');
+        });
+        document.addEventListener('click', function() {
+            document.querySelector('.qr-content').classList.add('d-none');
+        });
+
+        // 2. 产品中心下拉主链接跳转逻辑（复刻首页）
+        document.querySelector('.nav-link.dropdown-toggle[href="../pages/product.html"]').addEventListener('click', function(e) {
+            if (!e.target.classList.contains('dropdown-toggle-icon')) {
+                window.location.href = this.href;
+            }
+        });
+
+        // 3. 回到顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    </script>
+</body>
+</html>

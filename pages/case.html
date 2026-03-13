@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户案例 - 上海金钢自控阀门有限公司</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- 自定义样式（完全对齐产品中心页） -->
+    <style>
+        /* 导航栏悬浮效果（和产品中心100%一致） */
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 0px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .navbar-brand img {
+            height: 80px !important;
+            width: auto !important;
+            object-fit: contain;
+        }
+        .navbar-nav {
+            align-items: center;
+        }
+        .navbar-nav .nav-item {
+            margin: 0;
+        }
+        .navbar-nav .nav-link {
+            color: #333333 !important;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 25px 18px !important;
+            margin: 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .navbar-nav .nav-link.active {
+            color: #c8102e !important;
+            border-bottom: 3px solid #c8102e;
+            background-color: transparent !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #c8102e !important;
+            border-bottom: 3px solid #c8102e;
+            background-color: transparent !important;
+        }
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+            /* 修复：和产品中心一致的汉堡菜单图标路径 */
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* 顶部信息栏（和产品中心100%一致） */
+        .top-bar {
+            background-color: #000 !important;
+            color: #fff !important;
+            padding: 5px 0 !important;
+        }
+        .top-bar .welcome {
+            font-size: 14px;
+        }
+        .top-bar .tel {
+            font-size: 14px;
+        }
+        .top-bar .qr-box .qr-content {
+            display: none;
+        }
+        .top-bar .qr-box:hover .qr-content {
+            display: block;
+        }
+
+        /* 下拉菜单样式（和产品中心100%一致） */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 0;
+            padding: 0;
+            display: none; /* 默认隐藏 */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            min-width: 120px; /* 调窄下拉框宽度（原200px），可根据需求再调整 */
+            width: 120px; /* 固定宽度，确保不会自适应变宽 */
+            text-align: center; /* 菜单整体文字居中 */
+        }
+        /* 悬停时显示下拉菜单 */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        /* 下拉菜单项样式 - 文字居中+适配窄框 */
+        .dropdown-item {
+            padding: 10px 0; /* 去掉左右内边距，只保留上下，适配居中 */
+            color: #333;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            text-align: center; /* 单独给菜单项文字居中，双重保障 */
+            width: 100%; /* 菜单项宽度占满下拉框 */
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #c8102e;
+        }
+        @media (max-width: 992px) {
+            .nav-item.dropdown:hover .dropdown-menu {
+                display: none; /* 移动端关闭悬停显示 */
+            }
+            .navbar-nav .nav-link {
+                padding: 12px 15px !important;
+                border-bottom: none !important;
+            }
+        }
+
+        /* 面包屑样式（和产品中心100%一致） */
+        .breadcrumb {
+            background-color: transparent;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: #c8102e;
+            text-decoration: underline;
+        }
+        .breadcrumb-item.active {
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* ========== 客户案例专属样式 ========== */
+        .case-section {
+            padding: 40px 0;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #c8102e;
+            margin: 10px auto 0;
+        }
+
+        /* 关键修改：让每行卡片高度统一 */
+        .case-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        .case-col {
+            padding: 0 15px;
+            margin-bottom: 30px;
+            display: flex;
+        }
+        /* 案例卡片：左图右文 + 高度统一 */
+        .case-card {
+            display: flex;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            width: 100%;
+            height: 100%; /* 关键：卡片高度撑满父容器 */
+        }
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .case-img {
+            width: 50%;
+            flex-shrink: 0;
+            display: flex; /* 确保图片容器高度和卡片一致 */
+        }
+        .case-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .case-info {
+            width: 50%;
+            padding: 30px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .case-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .case-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            text-align: center;
+            overflow: hidden; /* 防止文字溢出导致高度不一致 */
+        }
+        
+        /* 查看详情按钮 —— 完全居中 */
+        .btn-case {
+            display: inline-block;
+            width: 120px;
+            height: 36px;
+            line-height: 34px;
+            padding: 0;
+            background-color: #ffffff;
+            color: #c8102e;
+            border: 1px solid #c8102e;
+            border-radius: 0;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+        .btn-case:hover {
+            background-color: #c8102e;
+            color: #ffffff;
+        }
+
+        /* 响应式：移动端卡片堆叠 */
+        @media (max-width: 768px) {
+            .case-card {
+                flex-direction: column;
+            }
+            .case-img, .case-info {
+                width: 100%;
+            }
+            .case-img {
+                height: 250px;
+            }
+        }
+
+        /* 页脚样式（和产品中心100%一致） */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 4px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 顶部信息栏（和产品中心100%一致） -->
+    <div class="top-bar bg-dark text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="welcome">欢迎访问上海金钢自控阀门有限公司！</div>
+            <div class="top-info d-flex align-items-center gap-3">
+                <span class="tel"><i class="bi bi-telephone"></i> 4000-888-2568</span>
+                <!-- 二维码弹窗（和产品中心一致的结构） -->
+                <div class="qr-box position-relative">
+                    <button class="btn btn-sm btn-light" id="qrBtn">
+                        <i class="bi bi-qr-code"></i> 扫码关注
+                    </button>
+                    <div class="qr-content position-absolute right-0 top-100 bg-white p-2 shadow-lg rounded d-none z-3">
+                        <img src="../images/wechat_qr.jpg" alt="微信二维码" width="150" height="150" class="img-fluid">
+                        <p class="text-center text-muted small mt-1">微信公众号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2. 导航栏（和产品中心100%一致，仅激活客户案例） -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm sticky-top" id="mainNav">
+        <div class="container">
+            <!-- Logo（和产品中心一致的路径/尺寸） -->
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/logo/company_logo.png" alt="金钢阀门" width="220" height="150" class="img-fluid">
+            </a>
+            <!-- 手机端汉堡菜单（和产品中心一致） -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- 导航菜单（和产品中心一致的结构，仅客户案例设为active） -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">首页</a></li>
+                    <!-- 产品中心下拉 - 修复跳转问题：添加onclick事件强制跳转 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../pages/product.html" role="button" data-bs-toggle="dropdown" 
+                           onclick="window.location.href='../pages/product.html'">产品中心</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../pages/product.html#pneumatic">低温截止阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#electric">调节阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#solenoid">真空阀</a></li>
+                            <li><a class="dropdown-item" href="../pages/product.html#regulating">无摩擦截止阀</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/about.html">关于我们</a></li>
+                    <!-- 激活客户案例 -->
+                    <li class="nav-item"><a class="nav-link active" href="../pages/case.html">客户案例</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/technologe.html">技术中心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. 主体内容（容器padding和产品中心一致为py-5） -->
+    <div class="container py-5">
+        <!-- 面包屑（和产品中心100%一致的样式/结构） -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html"><i class="bi bi-house-door"></i> 首页</a></li>
+                <li class="breadcrumb-item active" aria-current="page">客户案例</li>
+            </ol>
+        </nav>
+
+        <!-- 客户案例列表 -->
+        <section class="case-section">
+            <h2 class="section-title">经典案例</h2>
+            <!-- 修改：使用自定义的row/col类确保高度统一 -->
+            <div class="case-row">
+                <!-- 案例1 -->
+                <div class="case-col col-lg-6">
+                    <div class="case-card">
+                        <div class="case-img">
+                            <img src="../images/case/case2.jpg" alt="国家电网使用现场">
+                        </div>
+                        <div class="case-info">
+                            <h3 class="case-title">国家电网使用现场</h3>
+                            <p class="case-desc">
+                                客户介绍：国家电网有限公司（State Grid Corporation of China）是一家以建设运营电网为核心业务的电力供应公司，成立于2002年12月29日，前身是中华人民共和国电力工业部、国家电力公司。该公司业务涵盖电网业务、电工装备制造、信息通信与电子商务等。经营区域覆盖26个省（自治区、直辖市），覆盖国土面积的88%以上。
+                            </p>
+                            <a href="guojiadianwang.html" class="btn-case">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 案例2 -->
+                <div class="case-col col-lg-6">
+                    <div class="case-card">
+                        <div class="case-img">
+                            <img src="../images/case/case1.jpg" alt="长庆油田项目">
+                        </div>
+                        <div class="case-info">
+                            <h3 class="case-title">长庆油田项目</h3>
+                            <p class="case-desc">
+                                客户简介：中国第 一大油气田。勘探区域主要在陕甘宁盆地，勘探总面积约37万平方公里。油气勘探开发建设始于1970年，先后找到油气田22个，其中油田19个，累计探明油气地质储量54188.8万吨（含天然气探明储量2330.08亿立方米，按当量折合原油储量在内）。2012年，长庆油田全年累计生产原油2261万吨，生产天然气286亿立方米，折合油气当量超过4500万吨，成为中国内陆第 一大油气田。上海金钢阀门公司与长庆井下油田2012年12月签订战略合作，在2013年春季经我司专业人员现场调试检验合格，正式进入投产。
+                            </p>
+                            <a href="changqingyoutian.html" class="btn-case">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 案例3 -->
+                <div class="case-col col-lg-6">
+                    <div class="case-card">
+                        <div class="case-img">
+                            <img src="../images/case/case3.jpg" alt="上海大众项目">
+                        </div>
+                        <div class="case-info">
+                            <h3 class="case-title">上海大众项目</h3>
+                            <p class="case-desc">
+                                客户介绍：上海大众汽车位于上海安亭，三厂车身采用激光焊接及CMT焊接技术，选用高强度的热成形工艺板材，引进国内独 有的Arplas焊接技术，从多方面保 证车身的强度及钢度要求。油漆车间二线预处理电泳采用zui新型多功能穿梭机，显著提高了预处理电泳质量，消除气泡；采用UBS翻转小车进行输送，从人机工程学的角度考虑显著降低员工的操作强度。总装车间也是国内zui早采用柔性化生产方式的车间，采用订单化生产系统，根据客户需求定制所需车型，实现智能化生产。
+                            </p>
+                            <a href="shanghaidazhong.html" class="btn-case">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 案例4 -->
+                <div class="case-col col-lg-6">
+                    <div class="case-card">
+                        <div class="case-img">
+                            <img src="../images/case/case4.jpg" alt="胜利油田项目">
+                        </div>
+                        <div class="case-info">
+                            <h3 class="case-title">胜利油田项目</h3>
+                            <p class="case-desc">
+                                客户介绍：50多年来，胜利油田在自身发展的同时，为促进国 民经济建设作出了重要贡献，累计探明石油地质储量53.87亿吨，探明天然气地质储量2676.1亿立方米，生产原油10.87亿吨，实现收入17737亿元，上缴利税8747亿元，为推动石油石化工业发展作出了重要贡献。感谢胜利油田对我公司的大力支持!我公司6月将正式开启新疆乌鲁木齐奎屯市胜利油田分厂项目。
+                            </p>
+                            <a href="shengliyoutian.html" class="btn-case">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. 页脚（和产品中心100%一致） -->
+    <footer class="bg-black text-white py-4">
+        <div class="container text-center">
+            <p class="mb-1">© 2025 上海金钢自控阀门有限公司 版权所有 沪ICP备12046412号 | 网站地图</p>
+            <p class="mb-1"> 工厂地址：上海市嘉定区园区路268号 电话：4000-888-218 传真：021-65901444</p>
+            <p class="mb-1"> 上海金钢自控阀门有限公司是一家阀门厂家，核心产品有：高温球阀、气动球阀、不锈钢球阀、高温蝶阀等等，更多产品欢迎咨询</p>
+        </div>
+    </footer>
+
+    <!-- JS（和产品中心100%一致） -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 二维码弹窗逻辑（和产品中心完全一致）
+        document.getElementById('qrBtn')?.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const qrContent = document.querySelector('.qr-content');
+            if (qrContent) qrContent.classList.toggle('d-none');
+        });
+        document.addEventListener('click', function() {
+            const qrContent = document.querySelector('.qr-content');
+            if (qrContent) qrContent.classList.add('d-none');
+        });
+
+        // 确保卡片高度统一的辅助JS（兼容不同屏幕尺寸）
+        window.addEventListener('load', adjustCaseCardHeights);
+        window.addEventListener('resize', adjustCaseCardHeights);
+
+        function adjustCaseCardHeights() {
+            if (window.innerWidth < 768) return; // 移动端不处理，保持堆叠样式
+
+            const rows = document.querySelectorAll('.case-row');
+            rows.forEach(row => {
+                const cols = row.querySelectorAll('.case-col');
+                let maxHeight = 0;
+
+                // 先重置高度，获取最大高度
+                cols.forEach(col => {
+                    const card = col.querySelector('.case-card');
+                    card.style.height = 'auto';
+                    maxHeight = Math.max(maxHeight, card.offsetHeight);
+                });
+
+                // 统一设置为最大高度
+                cols.forEach(col => {
+                    const card = col.querySelector('.case-card');
+                    card.style.height = `${maxHeight}px`;
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -90,34 +90,34 @@
             display: block;
         }
 
-        /* ========== 新增：悬停显示下拉菜单样式 ========== */
-        /* 下拉菜单基础样式 - 调窄宽度+适配居中 */
+        /* 悬停显示下拉菜单样式 */
+        /* 下拉菜单基础样式 */
         .dropdown-menu {
             border: none;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 0;
             padding: 0;
-            display: none; /* 默认隐藏 */
+            display: none; 
             position: absolute;
             top: 100%;
             left: 0;
             z-index: 1000;
-            min-width: 120px; /* 调窄下拉框宽度（原200px），可根据需求再调整 */
-            width: 120px; /* 固定宽度，确保不会自适应变宽 */
-            text-align: center; /* 菜单整体文字居中 */
+            min-width: 120px; 
+            width: 120px; 
+            text-align: center; 
         }
         /* 悬停时显示下拉菜单 */
         .nav-item.dropdown:hover .dropdown-menu {
             display: block;
         }
-        /* 下拉菜单项样式 - 文字居中+适配窄框 */
+        /* 下拉菜单项样式  */
         .dropdown-item {
-            padding: 10px 0; /* 去掉左右内边距，只保留上下，适配居中 */
+            padding: 10px 0; 
             color: #333;
             font-size: 14px;
             transition: all 0.2s ease;
-            text-align: center; /* 单独给菜单项文字居中，双重保障 */
-            width: 100%; /* 菜单项宽度占满下拉框 */
+            text-align: center; 
+            width: 100%; 
         }
         .dropdown-item:hover {
             background-color: #f8f9fa;
@@ -135,7 +135,7 @@
             }
         }
 
-        /* 产品中心核心布局：左菜单 + 右产品 */
+        /* 产品中心布局 */
         .product-center-container {
             display: flex;
             gap: 20px;
@@ -215,7 +215,7 @@
         .product-content {
             flex: 1;
         }
-        /* 产品卡片样式 - 核心修改部分 */
+        /* 产品卡片样式 */
         .product-category .card {
             border: none;
             border-radius: 0;
@@ -241,7 +241,7 @@
             margin: 0;
             transition: all 0.3s ease;
         }
-        /* 鼠标悬浮效果：底部红色条 + 白色文字 */
+        /* 鼠标悬浮效果 */
         .product-category .card:hover .card-title {
             background-color: #c8102e;
             color: #fff;
@@ -249,9 +249,9 @@
         .product-category .card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        /* 查看详情按钮样式调整 */
+        /* 查看详情按钮样式 */
         .product-category .btn-primary {
-            display: none; /* 悬浮时显示按钮 */
+            display: none; 
             position: absolute;
             bottom: 45px;
             left: 50%;
@@ -318,12 +318,12 @@
 </head>
 <body>
 
-    <!-- 1. 顶部信息栏（400电话/二维码/收藏） -->
+    <!-- 1. 顶部信息栏 -->
     <div class="top-bar bg-dark text-white py-2">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="welcome">欢迎访问上海金钢自控阀门有限公司！</div>
             <div class="top-info d-flex align-items-center gap-3">
-                <span class="tel"><i class="bi bi-telephone"></i> 4000-888-2568</span>
+                <span class="tel"><i class="bi bi-telephone"></i> 4000-888-218</span>
                 <!-- 二维码弹窗 -->
                 <div class="qr-box position-relative">
                     <button class="btn btn-sm btn-light" id="qrBtn">
@@ -338,10 +338,10 @@
         </div>
     </div>
     
-    <!-- 导航栏（仅保留产品中心下拉） -->
+    <!-- 导航栏 -->
     <nav class="navbar navbar-expand-lg navbar-white bg-white shadow-sm sticky-top" id="mainNav">
         <div class="container">
-            <!-- Logo（尺寸和首页一致） -->
+            <!-- Logo -->
             <a class="navbar-brand" href="../index.html">
                 <img src="../images/logo/company_logo.png" alt="金钢阀门" width="220" height="150" class="img-fluid">
             </a>
@@ -349,11 +349,11 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- 导航菜单（仅产品中心保留下拉） -->
+            <!-- 导航菜单 -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="../index.html">首页</a></li>
-                    <!-- 仅保留产品中心的下拉功能 -->
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="./product.html" role="button" data-bs-toggle="dropdown">产品中心</a>
                         <ul class="dropdown-menu">
@@ -373,7 +373,7 @@
         </div>
     </nav>
 
-    <!-- 产品中心主体：左菜单 + 右产品 -->
+    <!-- 产品中心主体 -->
     <div class="container py-5">
         <!-- 面包屑导航（动态更新） -->
         <nav aria-label="breadcrumb">
@@ -384,7 +384,7 @@
             </ol>
         </nav>
 
-        <!-- 核心布局：左菜单 右产品 -->
+        <!-- 左菜单 右产品 -->
         <div class="product-center-container">
             <!-- 左侧固定分类菜单 -->
             <div class="product-sidebar">
@@ -647,38 +647,38 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 修复后的交互JS -->
+   
     <script>
-        // 核心：页面加载时初始化分类（优先锚点 > 本地记忆 > 默认低温截止阀）
+        
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. 读取URL锚点（详情页返回时会带 #electric/#solenoid 等）
+          
             const hash = window.location.hash;
-            // 2. 读取本地记忆的最后一次分类
+            
             const lastCate = localStorage.getItem('lastProductCate');
-            // 3. 确定要显示的目标分类
-            let targetId = '#pneumatic'; // 默认低温截止阀
+            
+            let targetId = '#pneumatic'; 
             if (hash && document.querySelector(hash)) {
-                targetId = hash; // 有锚点则用锚点
+                targetId = hash; 
             } else if (lastCate && document.querySelector(lastCate)) {
-                targetId = lastCate; // 无锚点但有记忆则用记忆
+                targetId = lastCate; 
             }
 
-            // 4. 初始化显示目标分类
+            
             switchProductCategory(targetId);
-            // 5. 初始化左侧菜单状态（高亮+展开目标分类）
+           
             initSidebarMenu(targetId);
-            // 6. 初始化面包屑
+            
             updateBreadcrumb(document.querySelector(`#mainSidebarMenu a[href="${targetId}"]`)?.dataset.cate || '低温截止阀');
         });
 
-        // 更新面包屑
+        
         function updateBreadcrumb(cateName) {
             document.getElementById('currentCategory').innerText = cateName;
         }
 
-        // 初始化左侧菜单状态（高亮+展开目标分类）
+       
         function initSidebarMenu(targetId) {
-            // 先重置所有菜单状态
+            
             document.querySelectorAll('#mainSidebarMenu > li > a').forEach(link => {
                 link.classList.remove('active');
                 const submenu = link.closest('li').querySelector('.submenu');
@@ -689,7 +689,7 @@
                     icon.classList.add('bi-chevron-right');
                 }
             });
-            // 激活目标菜单
+            
             const targetLink = document.querySelector(`#mainSidebarMenu > li > a[href="${targetId}"]`);
             if (targetLink) {
                 targetLink.classList.add('active');
@@ -703,39 +703,39 @@
             }
         }
 
-        // 1. 左侧一级菜单展开/折叠 + 面包屑更新
+        
         document.querySelectorAll('#mainSidebarMenu > li > a').forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const cateName = this.dataset.cate;
 
-                // 1. 更新面包屑
+                
                 updateBreadcrumb(cateName);
-                // 2. 初始化菜单状态（高亮当前、关闭其他）
+                
                 initSidebarMenu(targetId);
-                // 3. 切换产品分类显示
+                
                 switchProductCategory(targetId);
-                // 4. 记录当前分类到本地存储（关键：保存记忆）
+                
                 localStorage.setItem('lastProductCate', targetId);
             });
         });
 
-        // 2. 左侧子菜单点击（保留原逻辑，无实际子菜单时不生效）
+        
         document.querySelectorAll('.submenu-item').forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
-                // 同步更新面包屑（取父级分类名称）
+                
                 const parentLink = this.closest('ul.submenu').previousElementSibling;
                 const cateName = parentLink.getAttribute('data-cate');
                 updateBreadcrumb(cateName);
 
-                // 移除所有子菜单激活状态
+                
                 document.querySelectorAll('.submenu-item').forEach(link => link.classList.remove('active'));
-                // 标记当前子菜单为激活
+                
                 this.classList.add('active');
                 
-                // 平滑滚动到对应产品卡片
+               
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
@@ -746,41 +746,41 @@
                     });
                 }
 
-                // 确保父分类显示
+                
                 const productId = this.getAttribute('data-product-id');
                 switchProductCategory(`#${productId}`);
-                // 记录本地记忆
+                
                 localStorage.setItem('lastProductCate', `#${productId}`);
             });
         });
 
-        // 3. 顶部导航下拉菜单点击：切换分类 + 面包屑更新
+        
         document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
-                // 更新面包屑
+                
                 const cateName = this.innerText;
                 updateBreadcrumb(cateName);
 
                 const targetId = this.getAttribute('href');
                 switchProductCategory(targetId);
                 
-                // 同步左侧菜单状态
+                
                 initSidebarMenu(targetId);
-                // 记录本地记忆
+
                 localStorage.setItem('lastProductCate', targetId);
             });
         });
 
-        // 通用函数：切换产品分类显示
+        
         function switchProductCategory(targetId) {
-            // 隐藏所有分类
+           
             document.querySelectorAll('.product-category').forEach(cat => cat.classList.add('d-none'));
-            // 显示目标分类
+            
             const targetCategory = document.querySelector(targetId);
             if (targetCategory) {
                 targetCategory.classList.remove('d-none');
-                // 滚动到分类顶部
+                
                 const navbarHeight = document.querySelector('#mainNav').offsetHeight;
                 window.scrollTo({
                     top: targetCategory.offsetTop - navbarHeight - 30,

@@ -97,27 +97,27 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 0;
             padding: 0;
-            display: none; /* 默认隐藏 */
+            display: none;
             position: absolute;
             top: 100%;
             left: 0;
             z-index: 1000;
             min-width: 120px; 
-            width: 120px; /* 固定宽度 */
-            text-align: center; /* 菜单整体文字居中 */
+            width: 120px; 
+            text-align: center;
         }
         /* 悬停时显示下拉菜单 */
         .nav-item.dropdown:hover .dropdown-menu {
             display: block;
         }
-        /* 下拉菜单项样式 - 文字居中+适配窄框 */
+        /* 下拉菜单项样式 */
         .dropdown-item {
-            padding: 10px 0; /* 去掉左右内边距，只保留上下，适配居中 */
+            padding: 10px 0; 
             color: #333;
             font-size: 14px;
             transition: all 0.2s ease;
-            text-align: center; /* 单独给菜单项文字居中，双重保障 */
-            width: 100%; /* 菜单项宽度占满下拉框 */
+            text-align: center; 
+            width: 100%; 
         }
         .dropdown-item:hover {
             background-color: #f8f9fa;
@@ -125,7 +125,7 @@
         }
         @media (max-width: 992px) {
             .nav-item.dropdown:hover .dropdown-menu {
-                display: none; /* 移动端关闭悬停显示 */
+                display: none;
             }
             .navbar-nav .nav-link {
                 padding: 12px 15px !important;
@@ -193,7 +193,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             width: 100%;
-            height: 100%; /* 关键：卡片高度撑满父容器 */
+            height: 100%;
         }
         .case-card:hover {
             transform: translateY(-5px);
@@ -202,7 +202,7 @@
         .case-img {
             width: 50%;
             flex-shrink: 0;
-            display: flex; /* 确保图片容器高度和卡片一致 */
+            display: flex; 
         }
         .case-img img {
             width: 100%;
@@ -232,10 +232,10 @@
             margin-bottom: 25px;
             flex-grow: 1;
             text-align: center;
-            overflow: hidden; /* 防止文字溢出导致高度不一致 */
+            overflow: hidden;
         }
         
-        /* 查看详情按钮 —— 完全居中 */
+        /* 查看详情按钮  */
         .btn-case {
             display: inline-block;
             width: 120px;

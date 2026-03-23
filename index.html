@@ -250,7 +250,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="welcome">欢迎访问上海金钢自控阀门有限公司！</div>
             <div class="top-info d-flex align-items-center gap-3">
-                <span class="tel"><i class="bi bi-telephone"></i> 4000-888-2568</span>
+                <span class="tel"><i class="bi bi-telephone"></i> 4000-888-218</span>
                 <div class="qr-box position-relative">
                     <button class="btn btn-sm btn-light" id="qrBtn">
                         <i class="bi bi-qr-code"></i> 扫码关注
@@ -545,21 +545,24 @@
             <h2 class="text-center mb-5">联系我们</h2>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <form action="mailto:3275511272@qq.com?subject=官网阀门需求咨询" method="GET" enctype="text/plain">
-                        <div class="mb-3">
-                            <label class="form-label">姓名</label>
-                            <input type="text" class="form-control" name="姓名" placeholder="请输入您的姓名" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">联系电话</label>
-                            <input type="tel" class="form-control" name="电话" placeholder="请输入您的联系电话" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">需求描述</label>
-                            <textarea class="form-control" name="需求描述" rows="4" placeholder="请描述您的阀门需求（如：气动球阀DN50，耐高温200℃）" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">提交需求</button>
-                    </form>
+                    <form id="contactForm" action="https://formspree.io/f/你的FormspreeID" method="POST">
+                    <input type="hidden" name="_subject" value="官网阀门需求咨询">
+                    <input type="hidden" name="_replyto" value="用户邮箱">
+                    <div class="mb-3">
+                        <label class="form-label">姓名</label>
+                        <input type="text" class="form-control" name="姓名" placeholder="请输入您的姓名" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">联系电话</label>
+                        <input type="tel" class="form-control" name="电话" placeholder="请输入您的联系电话" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">需求描述</label>
+                        <textarea class="form-control" name="需求描述" rows="4" placeholder="请描述您的阀门需求" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">提交需求</button>
+                    <div id="formStatus" class="mt-2 text-center d-none"></div>
+                </form>
                 </div>
                 <div class="col-md-6">
                     <h4 class="mb-4">企业信息</h4>
@@ -626,6 +629,36 @@
         document.addEventListener('click', function () {
             qrContent.style.display = 'none';
         });
+
+        // 联系表单提交状态
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(res => {
+                if (res.ok) {
+                    formStatus.textContent = '提交成功！我们会尽快联系您';
+                    formStatus.classList.remove('d-none');
+                    formStatus.classList.add('text-success');
+                    this.reset();
+                    setTimeout(() => formStatus.classList.add('d-none'), 3000);
+                } else {
+                    formStatus.textContent = '提交失败，请稍后重试';
+                    formStatus.classList.remove('d-none');
+                    formStatus.classList.add('text-danger');
+                }
+            }).catch(() => {
+                formStatus.textContent = '提交失败，请稍后重试';
+                formStatus.classList.remove('d-none');
+                formStatus.classList.add('text-danger');
+            });
+        });
+
     </script>
 </body>
 </html>
